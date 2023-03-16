@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    
+<meta charset="utf-8">
+<link rel="shortcut icon" href="#" />  
+<title>Registro de clientes</title>
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+	crossorigin="anonymous">
+ <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <!-- CSS personalizado --> 
+    <link rel="stylesheet" href="main.css">  
+       <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <!--datables CSS básico-->
+    <link rel="stylesheet" type="text/css" href="datatables/datatables.min.css"/>
+    <!--datables estilo bootstrap 4 CSS-->  
+    <link rel="stylesheet"  type="text/css" href="datatables/DataTables-1.10.18/css/dataTables.bootstrap4.min.css">
+           
+    <!--font awesome con CDN-->  
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">  
+         <link rel="stylesheet" type="text/css" href="DataTables-1.13.2/css/dataTables.bootstrap4.min.css"/>
+<link rel="stylesheet" type="text/css" href="Buttons-2.3.4/css/buttons.bootstrap4.min.css"/>
+<body>
+
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+		<div class="container">
+			<a class="navbar-brand" href="#">Control de Clientes</a>
+
+		</div>
+
+	</nav>
+	<br>
+
+	<div class="container">
+		<div class="row">
+			<h1>Lista de Clientes</h1>
+		</div>
+		<table id="clientes" class="table table-bordered">
+			<thead class="table-dark">
+				<tr>
+					<th scope="col">Id</th>
+					<th scope="col">Nombre</th>
+					<th scope="col">Apellido</th>
+					<th scope="col">Edad</th>
+					<th scope="col">Telefono</th>
+					<th scope="col">Asistencia</th>
+					<th scope="col">Acciones</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="cliente : ${listaCliente}">
+					<td th:text="${cliente.id_cliente}"></td>
+					<td th:text="${cliente.Nombre}"></td>
+					<td th:text="${cliente.Apellido}"></td>
+					<td th:text="${cliente.Edad}"></td>
+					<td th:text="${cliente.Telefono}"></td>
+					<td th:text="${cliente.asistencia.Asistencia}"></td>
+					<td><a
+						th:href="@{'/cliente/editar'+'/'+ ${cliente.id_cliente}}"
+						class="btn btn-outline-info">Editar</a> 
+						
+						<button
+						th:onclick="@{'confirmar('+  ${cliente.id_cliente} +')'}"
+						class="btn btn-outline-danger">Eliminar</button></td>
+				</tr>
+			</tbody>
+		</table>
+		<a th:href="@{/cliente/nuevo}" class="btn btn-outline-secondary">Nuevo
+			cliente</a>
+	
+	
+	
+	
+	
+	
+	
+	</div>
+	
+<footer>
+        <div class="contenedor-footer">
+            <div class="content-foo">
+                <h4>TELEFONOS</h4>
+                <p>3102215582</p>
+            </div>
+            <div class="content-foo">
+                <h4>Email</h4>
+                <p>Juanpabloherran@gmail.com</p>
+            </div>
+            <div class="content-foo">
+                <h4>Sede</h4>
+                <p>Sede bosa</p>
+            </div>
+            <div class="content-foo">
+                <h4>Direccion</h4>
+                <p>Calle 57 a sur # 93 c 98</p>
+            </div>
+        </div>
+        <h2 class="titulo-final"> CORREO INNOVATION: INNOVATION@gmail.co.com
+          |</h2>
+    </footer>
+	  
+    <!-- jQuery, Popper.js, Bootstrap JS -->
+    <script src="jquery/jquery-3.6.1.min.js"></script>
+    <script src="popper/popper.min.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+      
+    <!-- datatables JS -->
+    <script type="text/javascript" src="datatables/datatables.min.js"></script>   
+	
+ 
+<script type="text/javascript" src="JSZip-2.5.0/jszip.min.js"></script>
+<script type="text/javascript" src="pdfmake-0.1.36/pdfmake.min.js"></script>
+<script type="text/javascript" src="pdfmake-0.1.36/vfs_fonts.js"></script>
+<script type="text/javascript" src="DataTables-1.13.2/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="DataTables-1.13.2/js/dataTables.bootstrap4.min.js"></script>
+<script type="text/javascript" src="Buttons-2.3.4/js/dataTables.buttons.min.js"></script>
+<script type="text/javascript" src="Buttons-2.3.4/js/buttons.bootstrap4.min.js"></script>
+<script type="text/javascript" src="Buttons-2.3.4/js/buttons.html5.min.js"></script>
+<script type="text/javascript" src="Buttons-2.3.4/js/buttons.print.min.js"></script>
+ 
+	<script type="text/javascript"
+		src="/datatables/Buttons-2.3.4/js/dataTables.buttons.min.js"></script>
+	<script type="text/javascript"
+		src="/datatables/Buttons-2.3.4/js/buttons.html5.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.6.15/dist/sweetalert2.all.min.js"></script>
+	<script type="text/javascript" src="/ClaseJS/clase.js"></script>
+
+	<script type="text/javascript" src="/clienteJS/cliente.js"></script>
+	 
+ </body>
+</html>

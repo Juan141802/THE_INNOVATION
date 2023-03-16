@@ -1,0 +1,39 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<title>Menù Administrador</title>
+	<link rel="stylesheet" type="text/css" href="/css/estilos.css">
+</head>
+<body>
+
+
+	<header class="header">
+		<div class="container">
+		<div class="btn-menu">
+			<label for="btn-menu">☰</label>
+		</div>
+			<div class="logo">
+				<h1>Menú Administrador</h1>
+			
+	</header>
+	<div class="capa"></div>
+<!--	--------------->
+<input type="checkbox" id="btn-menu">
+<div class="container-menu">
+	<div class="cont-menu">
+		<nav>
+			<a th:href="@{/servicios}">Servicios</a>
+
+			
+			<a th:href="@{/cliente}">Clientes</a>
+			<a th:href="@{/vehiculos}">Vehiculo</a>
+			<a th:href="@{/usu}">Usuarios</a>
+			<a href="Genera.html">Generar citas</a>
+		</nav>
+		<label for="btn-menu">✖️</label>
+	</div>
+</div>
+</body>
+</html>

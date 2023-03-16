@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<title>Listado de Ventas de Servicios</title>
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+	crossorigin="anonymous">
+</head>
+<body>
+
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+		<div class="container">
+			<a class="navbar-brand" href="#">Control de Ventas de Servicios</a>
+		</div>
+	</nav>
+	<br>
+
+	<div class="container">
+		<div class="row">
+			<h1>Lista de Ventas Servicios</h1>
+		</div>
+		<table class="table table-striped table-bordered">
+			<thead>
+				<tr>
+					<th scope="col">Id</th>
+					<th scope="col">Servicio</th>
+					<th scope="col">Informacion</th>
+					<th scope="col">Valor</th>
+					<th scope="col">Acciones</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="ventaservicio : ${ventaservicio}">
+					<td th:text="${ventaservicio.id_vser}">Id</td>
+					<td th:text="${ventaservicio.nom}">Servicio</td>
+					<td th:text="${ventaservicio.info}">Informacion</td>
+					<td th:text="${ventaservicio.val}">Valor</td>
+					<td>
+					<a th:href="@{/ventaservicio/editar/{id_vser}(id_vser=${ventaservicio.id_vser})}" class="btn btn-outline-info">Editar</a>
+					<a th:href="@{/ventaservicio/{id_vser}(id_vser=${ventaservicio.id_vser})}" class="btn btn-outline-danger">Eliminar</a>
+				    </td>
+				</tr>
+			</tbody>
+		</table>
+		<a th:href="@{/ventaservicio/nuevo}" class="btn btn-outline-secondary">Agregar Venta Servicio</a>
+	</div>
+
+</body>
+</html>

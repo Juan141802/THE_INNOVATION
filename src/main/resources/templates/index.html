@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeLeaf.org">
+<head>
+<meta charset="utf-8">
+<title>Inicio</title>
+<!-- Latest compiled and minified CSS -->
+
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+	crossorigin="anonymous">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+	integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
+	crossorigin="anonymous">
+	 <link rel="stylesheet" type="text/css" href="/css/style.css">
+</head>
+<body>
+
+<!--Background-->
+ 
+ <!--Background-->
+
+
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+		<div class="container">
+			<a class="navbar-brand" href="#">Usuarios</a>
+		</div>
+	
+				<a class="navbar-brand" href="#" th:href="@{/usu}">Registro e
+					Inicio de Sesión</a>
+		
+
+			<div id="navbar" class="collapse navbar-collapse">
+				<ul class="nav navbar-nav">
+					<li sec:authorize="isAuthenticated()"><a th:href="@{/logout}">Cerrar
+							Sesión</a>
+				</ul>
+			</div>
+		
+	</nav>
+
+	<br>
+	<br>
+
+	<div class="container">
+		<h1>Registro e Inicio de Sesión</h1>
+		<br>
+		<h4>Bienvenido <span sec:authentication="principal.username"></span></h4>
+		
+		<br>
+		<br>
+		
+		<table id="example" class="table table-bordered">
+		<thead class="table-dark">
+			<tr>
+				<th>ID</th>
+				<th>Nombre</th>
+				<th>Apellido</th>
+				<th>Email</th>
+				<th>Roles</th>
+				<th>Acciones</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="usuario : ${listaU}">
+				<td th:text="${usuario.id}">ID</td>
+				<td th:text="${usuario.nombre}">ID</td>
+				<td th:text="${usuario.apellido}">ID</td>
+				<td th:text="${usuario.email}">ID</td>
+				<td th:text="${usuario.roles}">ID</td>
+				<td><a
+						th:href="@{'/usu/editar'+'/'+ ${usuario.id}}"
+						class="btn btn-outline-info">Editar</a> 
+				
+				<td>					
+			</tr>
+		</tbody>
+	</table>
+	</div>
+	<footer>
+        <div class="contenedor-footer">
+            <div class="content-foo">
+                <h4>TELEFONOS</h4>
+                <p>3102215582</p>
+            </div>
+            <div class="content-foo">
+                <h4>Email</h4>
+                <p>Juanpabloherran@gmail.com</p>
+            </div>
+            <div class="content-foo">
+                <h4>Sede</h4>
+                <p>Sede bosa</p>
+            </div>
+            <div class="content-foo">
+                <h4>Direccion</h4>
+                <p>Calle 57 a sur # 93 c 98</p>
+            </div>
+        </div>
+        <h2 class="titulo-final"> CORREO INNOVATION: INNOVATION@gmail.co.com
+          |</h2>
+    </footer>
+	<br>
+
+	<!-- Latest compiled and minified JavaScript -->
+	<script
+		src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+		integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+		crossorigin="anonymous"></script>
+
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<title>Edicion de Categorias</title>
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+	crossorigin="anonymous">
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+		<div class="container">
+			<a class="navbar-brand" href="#">Control de Categorias</a>
+		</div>
+	</nav>
+    <br>
+    
+    <div class="container">
+      <div class="row">
+        <div class="col-Lg-6 coL-md-6 coL-sm-6 container justify-content-center card">
+          <h1 class="text-center">Edicion de Categorias</h1>
+           <div class="card-body">
+             <form th:action="@{//categoriavehiculo/guardar}" th:object="${categoriavehiculo}" method="POST">
+              <div class="form-group">
+                <label>Categoria Vehiculo:</label>
+                <input type="text" name="categoria" th:field="*{cil}" class="form-control" placeholder="Digite la categoría del vehiculo :">
+              </div>
+              <br>
+               <div class="box-footer">
+                 <button class="btn btn-success">Guardar</button>
+               </div>
+             </form>
+           </div>
+        </div>
+      </div>
+    </div>
+
+</body>
+</html>
